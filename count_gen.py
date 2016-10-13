@@ -3,7 +3,7 @@ import re
 
 def unique_count(filename, websites):
     pattern = re.compile("\shttps?://(.+?)/.+\s")
-    with open(filename) as fp:
+    with open(filename,"r",encoding='utf-8',errors='ignore') as fp:
         for line in fp:
             match_object = pattern.search(line)
             if match_object:
@@ -12,5 +12,5 @@ def unique_count(filename, websites):
 
 
 def visit_count(filename):
-    no_of_lines = (sum(1 for line in open(filename)))
+    no_of_lines = (sum(1 for line in open(filename,encoding='utf-8',errors='ignore')))
     return no_of_lines
